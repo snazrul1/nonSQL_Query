@@ -1,16 +1,20 @@
-from flask import Flask
+from flask import Flask, render_template
+from flask.ext.pymongo import PyMongo
+
 app = Flask(__name__)
+mongo = PyMongo(app)
+from pymongo import Connection
+connection = Connection()
+db = connection.test_database
+connection = db.test_collection
+
 
 @app.route('/')
-def test_site():
-    	import pymongo
-	conn=pymongo.Connection()  
-	db = client.test_database	
-	db.posts
-	r=list(db.posts.find())
-	r=str(r)
-	render_template("temp.html")
-	return json(r)
+def home_page():
+	post = {"author":"Sadat","text":"cats"}
+	posts = db.posts
+	for post in posts.find():
+		return render_template("index.html",name = posts.find())
 
-if __name__ == '__main__':
-    app.run()
+if __name__=='__main__':  
+   app.run(debug=True)
