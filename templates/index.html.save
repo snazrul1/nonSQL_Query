@@ -1,0 +1,6 @@
+<!doctype html>
+<title>Hello from Flask</title>
+{% for post in name%}
+<h2>Post by {{ post.author}}</h2>
+<p>{{ post.text }}</p>
+{% endfor %}
