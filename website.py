@@ -11,12 +11,18 @@ db = connection.test_database
 posts = db.test_collection
 val={}
 
+@app.route('/')
+def nav():
+	form = Query()
+	n=1
+	return render_template('navigation.html',n=n)
+
 @app.route('/query', methods=['GET','POST'])
 def query():
 	form = Query()
 	return render_template('query.html', form = form)
 
-@app.route('/')
+@app.route('/all')
 def home_page():
 	posts = db.posts
 	for cat in posts.find():
