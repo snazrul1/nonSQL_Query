@@ -1,4 +1,4 @@
-Run website.py to start the website.
+Run website.py to launch the website.
 
 Description:
 
