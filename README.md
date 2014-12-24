@@ -1,5 +1,5 @@
 ###INSTRUCTIONS:###
-Run **run.py** to launch the website.
+Run **run.py** to launch the app.
 
 
 
